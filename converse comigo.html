@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags, título e link para CSS -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Converse Comigo</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos adicionais para o vídeo */
+        #video-background {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Vídeo de fundo -->
+    <video id="video-background" autoplay muted loop>
+        <source src="C:\\Users\\Usuario\\Downloads\\videofundo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Conteúdo da página (chat) -->
+    <div class="chat-container">
+        <div class="chat-box">
+            <div id="chat-messages"></div>
+            <input type="text" id="user-input" placeholder="Digite sua mensagem...">
+            <button id="send-btn">Enviar</button>
+        </div>
+    </div>
+
+    <!-- Scripts e outros elementos necessários -->
+</body>
+</html>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Converse Comigo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.chat-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.chat-box {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 100%;
+}
+
+#chat-messages {
+    height: 200px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+
+#user-input {
+    width: calc(100% - 70px);
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+#send-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+</style>
+<body>
+    
+    <div class="chat-container">
+        <div class="chat-box">
+            <div id="chat-messages"></div>
+            <input type="text" id="user-input" placeholder="Digite sua mensagem...">
+            <button id="send-btn">Enviar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    
+</body>
+
+</html>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const chatMessages = document.getElementById('chat-messages');
+    const userInput = document.getElementById('user-input');
+    const sendBtn = document.getElementById('send-btn');
+
+    sendBtn.addEventListener('click', function() {
+        if (userInput.value.trim() !== '') {
+            appendMessage('Você', userInput.value);
+            userInput.value = '';
+        }
+    });
+
+    function appendMessage(sender, message) {
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('message');
+        messageElement.textContent = sender + ': ' + message;
+        chatMessages.appendChild(messageElement);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+});
+</script>
